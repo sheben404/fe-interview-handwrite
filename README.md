@@ -7,6 +7,7 @@
 - [实现 bind()](./src/bind.js)
 - [实现 apply()](./src/apply.js)
 - [实现 call()](./src/call.js)
+- [实现 trim()](./src/trim.js)
 - [实现 instanceof](./src/instanceof.js)
 - [实现 new](./src/new.js)
 - [实现 jsonp](./src/jsonp.js)
@@ -86,6 +87,30 @@ function test(arg1, arg2, arg3) {
   console.log(arg1, arg2, arg3);  // 1 2 3
 }
 test.myCall(obj, 1,2,3);
+```
+
+### 实现 trim()
+
+```javascript
+//使用正则表达式
+function myTrim1(str){
+    return str.replace(/^\s+|\s+$/g,'')
+}
+
+//不使用正则表达式
+function myTrim2(str){
+    let head = 0
+        foot = str.length
+    for(let i =0;i<str.length;i++){
+        if(str[i]===' ')head++
+        else break
+    }
+    for(let j =str.length-1;j>0;j--){
+        if(str[j]===' ')foot--
+        else break
+    }
+    return str.substr(head,foot-head)
+}
 ```
 
 ### 实现 instanceof
